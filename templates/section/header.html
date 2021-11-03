@@ -6,28 +6,28 @@
                     <div class="row">
                         <div class="col-lg-2 col-md-3">
                             <div class="logo-area">
-                                <a href="index.html"><img class="img-responsive" src="{% static 'img/logo.png' %}" alt="logo"></a>
+                                <a href="{% url 'home' %}"><img class="img-responsive" src="{% static 'img/logo.png' %}" alt="logo"></a>
                             </div>
                         </div>
                         <div class="col-lg-8 col-md-9">
                             <nav id="desktop-nav">
                                 <ul>
-                                    <li class="active"><a href="index.html">Home</a></li>
-                                    <li><a href="about2.html">About</a></li>
-                                    <li><a href="courses2.html">Courses</a>
+                                    <li class="active"><a href="{% url 'home' %}">Home</a></li>
+                                    <li><a href="{% url 'about' %}">About</a></li>
+                                    <li><a href="{% url 'courses' %}">Courses</a>
                                         <ul>
-                                            <li><a href="courses2.html">Courses</a></li>
-                                            <li><a href="lecturers2.html">Lecturers</a></li>
+                                            <li><a href="{% url 'courses' %}">Courses</a></li>
+                                            <li><a href="{% url 'lecturers' %}">Lecturers</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="news2.html">News</a>
+                                    <li><a href="{% url 'news' %}">News</a>
                                         <ul>
-                                            <li><a href="news2.html">News</a></li>
-                                            <li><a href="event.html">Event</a></li>
+                                            <li><a href="{% url 'news' %}">News</a></li>
+                                            <li><a href="{% url 'event' %}">Event</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="gallery2.html">Gallery</a></li>
-                                    <li><a href="contact1.html">Contact</a></li>
+                                    <li><a href="{% url 'gallery' %}">Gallery</a></li>
+                                    <li><a href="{% url 'contact' %}">Contact</a></li>
                                 </ul>
                             </nav>
                         </div>
@@ -48,22 +48,22 @@
                         <div class="mobile-menu">
                             <nav id="dropdown">
                                 <ul>
-                                    <li class="active"><a href="index.html">Home</a></li>
-                                    <li><a href="about2.html">About</a></li>
-                                    <li><a href="courses2.html">Courses</a>
+                                    <li class="active"><a href="{% url 'home' %}">Home</a></li>
+                                    <li><a href="{% url 'about' %}">About</a></li>
+                                    <li><a href="{% url 'courses' %}">Courses</a>
                                         <ul>
-                                            <li><a href="courses2.html">Courses</a></li>
-                                            <li><a href="lecturers2.html">Lecturers</a></li>
+                                            <li><a href="{% url 'courses' %}">Courses</a></li>
+                                            <li><a href="{% url 'lecturers' %}">Lecturers</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="news2.html">News</a>
+                                    <li><a href="{% url 'news' %}">News</a>
                                         <ul>
-                                            <li><a href="news2.html">News</a></li>
-                                            <li><a href="event.html">Event</a></li>
+                                            <li><a href="{% url 'news' %}">News</a></li>
+                                            <li><a href="{% url 'event' %}">Event</a></li>
                                         </ul>
                                     </li>
-                                    <li><a href="gallery2.html">Gallery</a></li>
-                                    <li><a href="contact1.html">Contact</a></li>
+                                    <li><a href="{% url 'gallery' %}">Gallery</a></li>
+                                    <li><a href="{% url 'contact' %}">Contact</a></li>
                                 </ul>
                             </nav>
                         </div>

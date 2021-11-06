@@ -1,9 +1,14 @@
 from django.shortcuts import render
+from .models import Welcome_text
 
 # Create your views here.
 
 def home(request):
-    return render(request, 'pages/index.html')
+    obj = Welcome_text.objects.get()
+    context = {
+        'text':obj
+    }
+    return render(request, 'pages/index.html', context)
 
 
 
@@ -13,14 +18,6 @@ def about(request):
 
 def gallery(request):
     return render(request, 'pages/gallery.html')
-
-
-def courses(request):
-    return render(request, 'pages/courses.html')
-
-
-def lecturers(request):
-    return render(request, 'pages/lecturers.html')
 
 
 def news(request):

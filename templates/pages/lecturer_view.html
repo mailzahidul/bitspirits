@@ -1,0 +1,94 @@
+{% extends 'base.html' %}
+
+{% block title %} Lecturer | {{ lecturer.name }}{% endblock %}
+
+{% block content %}
+
+<div class="inner-page-banner-area" style="background-image: url('../../static/img/banner/5.jpg');">
+    <div class="container">
+        <div class="pagination-area">
+            <h1>Lecturers Details</h1>
+            <ul>
+                <li><a href="#">Home</a> -</li>
+                <li>Details</li>
+            </ul>
+        </div>
+    </div>
+</div>
+<!-- Inner Page Banner Area End Here -->
+<!-- Courses Page 3 Area Start Here -->
+<div class="lecturers-page-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12">
+                <div class="lecturers-contact-info">
+                    <img src="{{ lecturer.image.url }}" class="img-responsive" alt="team">
+                    <h2>{{ lecturer.name }}</h2>
+                    <h3>{{ lecturer.designation }}</h3>
+                    <ul class="lecturers-social2">
+                        <li><a href="{{ lecturer.email }}"><i class="fa fa-envelope-o" aria-hidden="true"></i></a></li>
+                        <li><a href="{{ lecturer.linkdin }}"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                        <li><a href="{{ lecturer.twetter }}"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                        <li><a href="{{ lecturer.facebook }}"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                    </ul>
+                    <ul class="lecturers-contact">
+                        <li><i class="fa fa-phone" aria-hidden="true"></i>{{ lecturer.phone }}</li>
+                        <li><i class="fa fa-envelope-o" aria-hidden="true"></i>{{ lecturer.email }}</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-xl-8 col-lg-8 col-md-6 col-sm-12">
+                <h3 class="title-default-left title-bar-big-left-close">About Me</h3>
+                <p>{{ lecturer.about }}</p>
+                <h3 class="title-default-left title-bar-big-left-close">Qualifications</h3>
+                <ul class="course-feature2">
+                    <li>Research the conditions of urbanism</li>
+                    <li>Employ advanced design techniques</li>
+                    <li>Lens of landscape theory and design practice</li>
+                    <li>Employ advanced design techniques</li>
+                    <li>Innovative methodologies</li>
+                </ul>
+                <div class="leave-comments">
+                    <h3 class="title-default-left title-bar-big-left-close">Contact With Me</h3>
+                    <div class="contact-form">
+                        <form method="POST" action="">
+                            {% csrf_token %}
+                            <fieldset>
+                                <div class="row">
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <input type="hidden" value="{{ lecturer.id }}" name="lecturer">
+                                            <input type="text" placeholder="Name" name="name" class="form-control">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6">
+                                        <div class="form-group">
+                                            <input type="email" placeholder="Email"  name="email" class="form-control">
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group">
+                                            <textarea placeholder="Comment"  name="comments" class="textarea form-control" id="form-message" rows="8" cols="20"></textarea>
+                                            <div class="help-block with-errors"></div>
+                                        </div>
+                                    </div>
+                                    <div class="col-md-12">
+                                        <div class="form-group margin-bottom-none">
+                                            <button type="submit" class="view-all-accent-btn">Post Comment</button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </fieldset>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Courses Page 3 Area End Here -->
+<!-- Footer Area Start Here -->
+
+{% endblock %}

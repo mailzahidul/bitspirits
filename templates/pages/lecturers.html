@@ -35,114 +35,26 @@
                     </div>
                 </div>
                 <div class="row featuredContainer">
+                    {% for i in lecturers %}
                     <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 diploma cse">
                         <div class="single-item">
                             <div class="lecturers-item-wrapper">
-                                <a href="#"><img class="img-responsive" src="{% static 'img/team/14.jpg' %}" alt="team"></a>
+                                <a href="#"><img class="img-responsive" src="{{ i.image.url }}" alt="team"></a>
                                 <div class="lecturers-content-wrapper">
-                                    <h3><a href="single-lecturers.html">Rosy Janner</a></h3>
-                                    <span>Senior Finance Lecturer</span>
-                                    <p>Eimply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industummy text.</p>
+                                    <h3><a href="{% url 'lecturer' i.id %}">{{ i.name }}</a></h3>
+                                    <span>{{ i.department }}</span>
+                                    <p class="text-center">{{ i.about|truncatewords:10 }}</p>
                                     <ul class="lecturers-social">
-                                        <li><a href="#"><i class="fa fa-envelope-o" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                        <li><a href="{{ i.email }}"><i class="fa fa-envelope-o" aria-hidden="true"></i></a></li>
+                                        <li><a href="{{ i.linkdin }}"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                                        <li><a href="{{ i.twetter }}"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                        <li><a href="{{ i.facebook }}"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 cse english">
-                        <div class="single-item">
-                            <div class="lecturers-item-wrapper">
-                                <a href="#"><img class="img-responsive" src="{% static 'img/team/15.jpg' %}" alt="team"></a>
-                                <div class="lecturers-content-wrapper">
-                                    <h3><a href="single-lecturers.html">Tom Steven</a></h3>
-                                    <span>Senior Finance Lecturer</span>
-                                    <p>Eimply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industummy text.</p>
-                                    <ul class="lecturers-social">
-                                        <li><a href="#"><i class="fa fa-envelope-o" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 diploma english">
-                        <div class="single-item">
-                            <div class="lecturers-item-wrapper">
-                                <a href="#"><img class="img-responsive" src="{% static 'img/team/16.jpg' %}" alt="team"></a>
-                                <div class="lecturers-content-wrapper">
-                                    <h3><a href="single-lecturers.html">Luice Nishaa</a></h3>
-                                    <span>Senior Finance Lecturer</span>
-                                    <p>Eimply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industummy text.</p>
-                                    <ul class="lecturers-social">
-                                        <li><a href="#"><i class="fa fa-envelope-o" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 cse medical">
-                        <div class="single-item">
-                            <div class="lecturers-item-wrapper">
-                                <a href="#"><img class="img-responsive" src="{% static 'img/team/17.jpg' %}" alt="team"></a>
-                                <div class="lecturers-content-wrapper">
-                                    <h3><a href="single-lecturers.html">Mike Hussy</a></h3>
-                                    <span>Senior Finance Lecturer</span>
-                                    <p>Eimply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industummy text.</p>
-                                    <ul class="lecturers-social">
-                                        <li><a href="#"><i class="fa fa-envelope-o" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 diploma english">
-                        <div class="single-item">
-                            <div class="lecturers-item-wrapper">
-                                <a href="#"><img class="img-responsive" src="{% static 'img/team/18.jpg' %}" alt="team"></a>
-                                <div class="lecturers-content-wrapper">
-                                    <h3><a href="single-lecturers.html">Daziy Millar</a></h3>
-                                    <span>Senior Finance Lecturer</span>
-                                    <p>Eimply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industummy text.</p>
-                                    <ul class="lecturers-social">
-                                        <li><a href="#"><i class="fa fa-envelope-o" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6 col-sm-12 cse english medical">
-                        <div class="single-item">
-                            <div class="lecturers-item-wrapper">
-                                <a href="#"><img class="img-responsive" src="{% static 'img/team/19.jpg' %}" alt="team"></a>
-                                <div class="lecturers-content-wrapper">
-                                    <h3><a href="single-lecturers.html">David Lipu</a></h3>
-                                    <span>Senior Finance Lecturer</span>
-                                    <p>Eimply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industummy text.</p>
-                                    <ul class="lecturers-social">
-                                        <li><a href="#"><i class="fa fa-envelope-o" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                        <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+                    {% endfor %}
                 </div>
             </div>
         </div>

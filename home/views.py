@@ -1,12 +1,17 @@
 from django.shortcuts import render
 from .models import Welcome_text
+from academics.models import Courses, Lecturers
 
 # Create your views here.
 
 def home(request):
     obj = Welcome_text.objects.get()
+    courses = Courses.objects.all()
+    lecturers = Lecturers.objects.all()
     context = {
-        'text':obj
+        'text':obj,
+        'courses':courses,
+        'lecturers':lecturers
     }
     return render(request, 'pages/index.html', context)
 

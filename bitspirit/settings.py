@@ -64,6 +64,7 @@ TEMPLATES = [
                 'django.template.context_processors.request',
                 'django.contrib.auth.context_processors.auth',
                 'django.contrib.messages.context_processors.messages',
+                'home.custome_context_processor.institute'
             ],
         },
     },
@@ -128,6 +129,15 @@ STATICFILES_DIRS = [
  
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
+
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST = 'smtp.gmail.com'                                           
+EMAIL_USE_TLS = True
+EMAIL_PORT = 587                                                         
+EMAIL_HOST_USER = 'babazahidul@gmail.com'
+EMAIL_HOST_PASSWORD = 'Z009656z'
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field

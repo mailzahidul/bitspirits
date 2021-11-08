@@ -197,7 +197,7 @@
                                                 <a href="#"><i class="fa fa-link" aria-hidden="true"></i></a>
                                             </div>
                                             <div class="courses-content-wrapper">
-                                                <h3 class="item-title"><a href="single-courses3.html">GMAT</a></h3>
+                                                <h3 class="item-title"><a href="single-courses3.html">GMAT--</a></h3>
                                                 <p class="item-content">Rmply dummy text printing setting industry it’s
                                                     free demo.</p>
                                                 <ul class="courses-info">
@@ -241,32 +241,32 @@
                         <div class="tab-pane tab-item animated fadeIn show active" id="menu-2" role="tabpanel"
                              aria-labelledby="menu-2-tab">
                             <div class="row">
+                                {% for i in courses %}
                                 <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                                     <div class="courses-box3">
                                         <div class="single-item-wrapper">
                                             <div class="courses-img-wrapper hvr-bounce-to-right">
-                                                <img class="img-responsive" src="{% static 'img/course/1.jpg' %}" alt="courses">
+                                                <img class="img-responsive" src="{{ i.feature_img.url }}" alt="courses">
                                                 <a href="#"><i class="fa fa-link" aria-hidden="true"></i></a>
                                             </div>
                                             <div class="courses-content-wrapper">
-                                                <h3 class="item-title"><a href="single-courses3.html">GMAT</a></h3>
-                                                <p class="item-content">Rmply dummy text printing setting industry
-                                                    iLorem ipsum dolor sit consectetuer adipiscing elit et diam
-                                                    nonummy.t’s free demo.</p>
+                                                <h3 class="item-title"><a href="{% url 'course' i.id %}">{{ i.course_title }}</a></h3>
+                                                <p class="item-content">{{ i.short_description }}</p>
                                                 <ul class="courses-info">
-                                                    <li>1 Year
+                                                    <li>{{ i.duration }}
                                                         <br><span> Course</span></li>
-                                                    <li>15
+                                                    <li>{{ i.classes }}
                                                         <br><span> Classes</span></li>
-                                                    <li>05 pm - 07 pm
+                                                    <li>{{ i.time }}
                                                         <br><span> Time</span></li>
                                                 </ul>
-                                                <div class="courses-fee">$400</div>
+                                                <div class="courses-fee">${{ i.fees }}</div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                                {% endfor %}
+                                <!-- <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                                     <div class="courses-box3">
                                         <div class="single-item-wrapper">
                                             <div class="courses-img-wrapper hvr-bounce-to-right">
@@ -390,7 +390,7 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
+                                </div> -->
                             </div>
                         </div>
                     </div>
@@ -402,31 +402,23 @@
                             <div class="sidebar-box-inner">
                                 <h3 class="sidebar-title">Find your Course</h3>
                                 <div class="sidebar-find-course">
-                                    <form id="checkout-form">
+                                    <form id="checkout-form" method="GET" action="">
                                         <div class="form-group course-name">
-                                            <input id="first-name" placeholder="Course Name" class="form-control"
+                                            <input id="course_name" name="course_name" placeholder="Course Name" class="form-control"
                                                    type="text"/>
                                         </div>
                                         <div class="form-group">
                                             <div class="custom-select">
-                                                <select id="district" class='select2'>
-                                                    <option value="0">Categories</option>
-                                                    <option value="1">Categories 1</option>
-                                                    <option value="2">Categories 2</option>
-                                                    <option value="4">Categories 3</option>
-                                                    <option value="5">Categories 4</option>
-                                                    <option value="6">Categories 5</option>
-                                                    <option value="7">Categories 6</option>
-                                                    <option value="8">Categories 7</option>
-                                                    <option value="9">Categories 8</option>
-                                                    <option value="10">Categories 9</option>
-                                                    <option value="11">Categories 10</option>
+                                                <select id="district" class='select2 form-control' name='category'>
+                                                    {% for i in categories %}
+                                                    <option value="{{ i.id }}">{{ i.course_category }}</option>
+                                                    {% endfor %}
                                                 </select>
                                             </div>
                                         </div>
                                         <div class="form-group remember-style">
-                                            <span><input name="remember" type="checkbox">FREE</span>
-                                            <span><input name="remember" type="checkbox">PAID</span>
+                                            <span><input name="free" id="free" type="checkbox">FREE</span>
+                                            <span><input name="paid" id="paid" type="checkbox">PAID</span>
                                         </div>
                                         <div class="form-group">
                                             <button class="sidebar-search-btn disabled" type="submit" value="Login">
@@ -441,14 +433,9 @@
                             <div class="sidebar-box-inner">
                                 <h3 class="sidebar-title">Class Categories</h3>
                                 <ul class="sidebar-categories">
-                                    <li><a href="#">GMAT</a></li>
-                                    <li><a href="#">IELTS</a></li>
-                                    <li><a href="#">Regular MBA</a></li>
-                                    <li><a href="#">BBA</a></li>
-                                    <li><a href="#">CSE</a></li>
-                                    <li><a href="#">Diploma</a></li>
-                                    <li><a href="#">UI Design</a></li>
-                                    <li><a href="#">Graphic Design</a></li>
+                                    {% for i in categories %}
+                                    <li><a href="#">{{ i.course_category }}</a></li>
+                                    {% endfor %}
                                 </ul>
                             </div>
                         </div>

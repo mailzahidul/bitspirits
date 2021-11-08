@@ -19,6 +19,11 @@ class Lecturers(models.Model):
         return self.name
 
 
+class CourseCategory(models.Model):
+    course_category = models.CharField(max_length=50)
+
+    def __str__(self):
+        return self.course_category
 
 
 class Courses(models.Model):
@@ -26,14 +31,16 @@ class Courses(models.Model):
     short_description = models.TextField()
     description = models.TextField()
     feature_img = models.ImageField(upload_to='courses/', blank=True, null=True)
-    fees = models.PositiveIntegerField()
+    fees = models.PositiveIntegerField(blank=True, null=True)
     featured = models.BooleanField(default=False)
-    assigned_teacher = models.ForeignKey(Lecturers, on_delete=models.SET_NULL, null=True)
+    categories = models.ForeignKey(CourseCategory, on_delete=models.SET_NULL, blank=True, null=True)
+    is_free = models.BooleanField(default=False)
+    assigned_teacher = models.ManyToManyField(Lecturers, null=True)
     duration = models.CharField(max_length=20, blank=True, null=True)
     classes = models.CharField(max_length=20, blank=True, null=True)
     time = models.CharField(max_length=20, blank=True, null=True)
     lecture = models.CharField(max_length=20, blank=True, null=True)
-    lecture_question = models.CharField(max_length=20, blank=True, null=True)
+    lecture_question = models.CharField(max_length=80, blank=True, null=True)
     lecture_description = models.TextField(blank=True, null=True)
     lecture_duration = models.CharField(max_length=20, blank=True, null=True)
 

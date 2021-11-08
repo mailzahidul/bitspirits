@@ -6203,6 +6203,7 @@ ul.course-feature2 li:before {
   -webkit-flex: 6;
   flex: 6;
   margin-right: 10px;
+  margin-left: 50px;
 }
 .course-details-inner .course-details-tab-area .course-details-skilled-lecturers ul li .skilled-lecturers-content h4 {
   margin-bottom: 0;

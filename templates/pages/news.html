@@ -26,114 +26,26 @@
                 <div class="row">
                     <div class="col-xl-9 col-lg-9 col-md-8 col-sm-12">
                         <div class="row">
+                            {% for i in news %}
                             <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
                                 <div class="news-box">
                                     <div class="news-img-holder">
-                                        <img src="{% static 'img/news/7.jpg' %}" class="img-responsive" alt="research">
-                                        <ul class="news-date2">
-                                            <li>27 Dec</li>
-                                            <li>2016</li>
-                                        </ul>
-                                    </div>
-                                    <h3 class="title-news-left-bold"><a href="single-news.html">How To Build HTML To WordPress Site?</a></h3>
-                                    <ul class="title-bar-high news-comments">
-                                        <li><a href="#"><i class="fa fa-user" aria-hidden="true"></i><span>By</span> Admin</a></li>
-                                        <li><a href="#"><i class="fa fa-tags" aria-hidden="true"></i>Business</a></li>
-                                        <li><a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i><span>(03)</span> Comments</a></li>
-                                    </ul>
-                                    <p>Bimply dummy text of the printing and typesetting istryrem Ipsum has been the industry's standard dummy text ever when an unknown printer.</p>
-                                </div>
-                            </div>
-                            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
-                                <div class="news-box">
-                                    <div class="news-img-holder">
-                                        <img src="{% static 'img/news/8.jpg' %}" class="img-responsive" alt="research">
+                                        <img src="{{ i.image.url }}" class="img-responsive" alt="research">
                                         <ul class="news-date2">
                                             <li>20 Dec</li>
                                             <li>2016</li>
                                         </ul>
                                     </div>
-                                    <h3 class="title-news-left-bold"><a href="single-news.html">The printing and typesetting industry</a></h3>
+                                    <h3 class="title-news-left-bold"><a href="{% url 'news_view' i.id %}">{{ i.title }}</a></h3>
                                     <ul class="title-bar-high news-comments">
-                                        <li><a href="#"><i class="fa fa-user" aria-hidden="true"></i><span>By</span> Admin</a></li>
-                                        <li><a href="#"><i class="fa fa-tags" aria-hidden="true"></i>Business</a></li>
-                                        <li><a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i><span>(03)</span> Comments</a></li>
+                                        <li><a href="#"><i class="fa fa-user" aria-hidden="true"></i><span>By</span>{{ i.author }}</a></li>
+                                        <li><a href="#"><i class="fa fa-tags" aria-hidden="true"></i>{{ i.category }}</a></li>
+                                        <li><a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i><span>0</span> Comments</a></li>
                                     </ul>
-                                    <p>Bimply dummy text of the printing and typesetting istryrem Ipsum has been the industry's standard dummy text ever when an unknown printer.</p>
+                                    <p>{{ i.description|truncatewords:25 }}</p>
                                 </div>
                             </div>
-                            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
-                                <div class="news-box">
-                                    <div class="news-img-holder">
-                                        <img src="{% static 'img/news/9.jpg' %}" class="img-responsive" alt="research">
-                                        <ul class="news-date2">
-                                            <li>12 Dec</li>
-                                            <li>2016</li>
-                                        </ul>
-                                    </div>
-                                    <h3 class="title-news-left-bold"><a href="single-news.html">Business printing pesetting industry</a></h3>
-                                    <ul class="title-bar-high news-comments">
-                                        <li><a href="#"><i class="fa fa-user" aria-hidden="true"></i><span>By</span> Admin</a></li>
-                                        <li><a href="#"><i class="fa fa-tags" aria-hidden="true"></i>Business</a></li>
-                                        <li><a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i><span>(03)</span> Comments</a></li>
-                                    </ul>
-                                    <p>Bimply dummy text of the printing and typesetting istryrem Ipsum has been the industry's standard dummy text ever when an unknown printer.</p>
-                                </div>
-                            </div>
-                            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
-                                <div class="news-box">
-                                    <div class="news-img-holder">
-                                        <img src="{% static 'img/news/10.jpg' %}" class="img-responsive" alt="research">
-                                        <ul class="news-date2">
-                                            <li>03 Dec</li>
-                                            <li>2016</li>
-                                        </ul>
-                                    </div>
-                                    <h3 class="title-news-left-bold"><a href="single-news.html">How To Build HTML To WordPress Site?</a></h3>
-                                    <ul class="title-bar-high news-comments">
-                                        <li><a href="#"><i class="fa fa-user" aria-hidden="true"></i><span>By</span> Admin</a></li>
-                                        <li><a href="#"><i class="fa fa-tags" aria-hidden="true"></i>Business</a></li>
-                                        <li><a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i><span>(03)</span> Comments</a></li>
-                                    </ul>
-                                    <p>Bimply dummy text of the printing and typesetting istryrem Ipsum has been the industry's standard dummy text ever when an unknown printer.</p>
-                                </div>
-                            </div>
-                            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
-                                <div class="news-box">
-                                    <div class="news-img-holder">
-                                        <img src="{% static 'img/news/11.jpg' %}" class="img-responsive" alt="research">
-                                        <ul class="news-date2">
-                                            <li>25 Nov</li>
-                                            <li>2016</li>
-                                        </ul>
-                                    </div>
-                                    <h3 class="title-news-left-bold"><a href="single-news.html">The printing and typesetting industry</a></h3>
-                                    <ul class="title-bar-high news-comments">
-                                        <li><a href="#"><i class="fa fa-user" aria-hidden="true"></i><span>By</span> Admin</a></li>
-                                        <li><a href="#"><i class="fa fa-tags" aria-hidden="true"></i>Business</a></li>
-                                        <li><a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i><span>(03)</span> Comments</a></li>
-                                    </ul>
-                                    <p>Bimply dummy text of the printing and typesetting istryrem Ipsum has been the industry's standard dummy text ever when an unknown printer.</p>
-                                </div>
-                            </div>
-                            <div class="col-xl-6 col-lg-6 col-md-12 col-sm-12">
-                                <div class="news-box">
-                                    <div class="news-img-holder">
-                                        <img src="{% static 'img/news/12.jpg' %}" class="img-responsive" alt="research">
-                                        <ul class="news-date2">
-                                            <li>19 Nov</li>
-                                            <li>2016</li>
-                                        </ul>
-                                    </div>
-                                    <h3 class="title-news-left-bold"><a href="single-news.html">How To Build HTML To WordPress Site?</a></h3>
-                                    <ul class="title-bar-high news-comments">
-                                        <li><a href="#"><i class="fa fa-user" aria-hidden="true"></i><span>By</span> Admin</a></li>
-                                        <li><a href="#"><i class="fa fa-tags" aria-hidden="true"></i>Business</a></li>
-                                        <li><a href="#"><i class="fa fa-comments-o" aria-hidden="true"></i><span>(03)</span> Comments</a></li>
-                                    </ul>
-                                    <p>Bimply dummy text of the printing and typesetting istryrem Ipsum has been the industry's standard dummy text ever when an unknown printer.</p>
-                                </div>
-                            </div>
+                            {% endfor %}
                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                                 <ul class="pagination-center">
                                     <li class="active"><a href="#">1</a></li>
@@ -150,9 +62,9 @@
                                 <div class="sidebar-box-inner">
                                     <h3 class="sidebar-title">Search</h3>
                                     <div class="sidebar-find-course">
-                                        <form id="checkout-form">
+                                        <form id="checkout-form" action="{% url 'news_search' %}" method="GET">
                                             <div class="form-group course-name">
-                                                <input id="first-name" placeholder="Type Here . . .." class="form-control" type="text" />
+                                                <input id="first-name" placeholder="Type Here . . .." name="search" class="form-control" type="text" />
                                             </div>
                                             <div class="form-group">
                                                 <button class="sidebar-search-btn-full disabled" type="submit" value="Login">Search</button>
@@ -165,56 +77,29 @@
                                 <div class="sidebar-box-inner">
                                     <h3 class="sidebar-title">Categories</h3>
                                     <ul class="sidebar-categories">
-                                        <li><a href="#">GMAT</a></li>
-                                        <li><a href="#">IELTS</a></li>
-                                        <li><a href="#">Regular MBA</a></li>
-                                        <li><a href="#">BBA</a></li>
-                                        <li><a href="#">CSE</a></li>
-                                        <li><a href="#">Diploma</a></li>
+                                        {% for i in categories %}
+                                        <li><a href="#">{{ i.course_category }}</a></li>
+                                        {% endfor %}
                                     </ul>
                                 </div>
                             </div>
                             <div class="sidebar-box">
                                 <div class="sidebar-box-inner">
-                                    <h3 class="sidebar-title">Latest Posts</h3>
+                                    <h3 class="sidebar-title">Comming Events</h3>
                                     <div class="sidebar-latest-research-area">
                                         <ul>
+                                            {% for i in events %}
                                             <li>
                                                 <div class="latest-research-img">
-                                                    <a href="#"><img src="{% static 'img/sidebar/8.jpg' %}" class="img-responsive" alt="skilled"></a>
+                                                    <a href="#"><img src="{{ i.image.url }}" class="img-responsive" alt="skilled"></a>
                                                 </div>
                                                 <div class="latest-research-content">
-                                                    <h4>30 Nov, 2016</h4>
-                                                    <p>when an unknown printer took.</p>
+                                                    <!-- <h4>{{ i.event_time }}</h4> -->
+                                                    <p>{{ i.description|truncatewords:5 }}</p>
                                                 </div>
                                             </li>
-                                            <li>
-                                                <div class="latest-research-img">
-                                                    <a href="#"><img src="{% static 'img/sidebar/4.jpg' %}" class="img-responsive" alt="skilled"></a>
-                                                </div>
-                                                <div class="latest-research-content">
-                                                    <h4>10 Aug, 2016</h4>
-                                                    <p>when an unknown printer took.</p>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="latest-research-img">
-                                                    <a href="#"><img src="{% static 'img/sidebar/9.jpg' %}" class="img-responsive" alt="skilled"></a>
-                                                </div>
-                                                <div class="latest-research-content">
-                                                    <h4>05 Jul, 2016</h4>
-                                                    <p>when an unknown printer took.</p>
-                                                </div>
-                                            </li>
-                                            <li>
-                                                <div class="latest-research-img">
-                                                    <a href="#"><img src="{% static 'img/sidebar/10.jpg' %}" class="img-responsive" alt="skilled"></a>
-                                                </div>
-                                                <div class="latest-research-content">
-                                                    <h4>30 Feb, 2016</h4>
-                                                    <p>when an unknown printer took.</p>
-                                                </div>
-                                            </li>
+                                            {% endfor %}
+                                           
                                         </ul>
                                     </div>
                                 </div>

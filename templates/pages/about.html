@@ -25,10 +25,7 @@
             <div class="row about-page2-inner">
                 <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
                     <h2 class="title-default-left">About Our Institution</h2>
-                    <p>Tmply dummy text of the printing and typesetting indust Lorem Ipsum has been theitry's snce
-                        simply dummy text of the printing.Phasellus enim libero, blandit vel sapien vitae, condimentum
-                        ultricies magna euismod.Tmply dummy text of the printing and typesetting indust Lorem Ipsum has
-                        been theitr.</p>
+                    <p>{{ institute.insti_description }}</p>
                     <ul>
                         <li><a href="#">Materiality & Interpretation</a></li>
                         <li><a href="#">Design Management and Cultural Enterprise</a></li>
@@ -53,8 +50,7 @@
     <div class="why-choose-area">
         <div class="container">
             <h2 class="about-title">Why Choose Our Institution?</h2>
-            <p class="about-sub-title">Tmply dummy text of the printing and typesetting industry. Lorem Ipsum has been
-                theindustry's standard dummy text ever since the 1500s, when an unknown printer took.</p>
+            <p class="about-sub-title">{{ institute.insti_description }}</p>
         </div>
         <div class="container">
             <div class="row">
@@ -132,108 +128,25 @@
                  data-r-x-medium="2" data-r-x-medium-nav="true" data-r-x-medium-dots="false" data-r-small="3"
                  data-r-small-nav="true" data-r-small-dots="false" data-r-medium="4" data-r-medium-nav="true"
                  data-r-medium-dots="false" data-r-large="4" data-r-large-nav="true" data-r-large-dots="false">
-                <div class="single-item">
+                {% for lecturer in lecturers %}
+                 <div class="single-item">
                     <div class="single-item-wrapper">
                         <div class="lecturers-img-wrapper">
-                            <a href="#"><img class="img-responsive" src="{% static 'img/team/1.jpg' %}" alt="team"></a>
+                            <a href="#"><img class="img-responsive" src="{{ lecturer.image.url }}" alt="team"></a>
                         </div>
                         <div class="lecturers-content-wrapper">
-                            <h3 class="item-title"><a href="#">Rosy Janner</a></h3>
-                            <span class="item-designation">Senior Finance Lecturer</span>
+                            <h3 class="item-title"><a href="#">{{ lecturer.name }}</a></h3>
+                            <span class="item-designation">{{ lecturer.designation }}</span>
                             <ul class="lecturers-social">
-                                <li><a href="#"><i class="fa fa-envelope-o" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
+                                <li><a href="{{ lecturer.email }}"><i class="fa fa-envelope-o" aria-hidden="true"></i></a></li>
+                                <li><a href="{{ lecturer.linkdin }}"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+                                <li><a href="{{ lecturer.twetter }}"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+                                <li><a href="{{ lecturer.facebook }}"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
                             </ul>
                         </div>
                     </div>
                 </div>
-                <div class="single-item">
-                    <div class="single-item-wrapper">
-                        <div class="lecturers-img-wrapper">
-                            <a href="#"><img class="img-responsive" src="{% static 'img/team/2.jpg' %}" alt="team"></a>
-                        </div>
-                        <div class="lecturers-content-wrapper">
-                            <h3 class="item-title"><a href="#">Mike Hussy</a></h3>
-                            <span class="item-designation">Senior Finance Lecturer</span>
-                            <ul class="lecturers-social">
-                                <li><a href="#"><i class="fa fa-envelope-o" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="single-item">
-                    <div class="single-item-wrapper">
-                        <div class="lecturers-img-wrapper">
-                            <a href="#"><img class="img-responsive" src="{% static 'img/team/3.jpg' %}" alt="team"></a>
-                        </div>
-                        <div class="lecturers-content-wrapper">
-                            <h3 class="item-title"><a href="#">Daziy Millar</a></h3>
-                            <span class="item-designation">Senior Finance Lecturer</span>
-                            <ul class="lecturers-social">
-                                <li><a href="#"><i class="fa fa-envelope-o" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="single-item">
-                    <div class="single-item-wrapper">
-                        <div class="lecturers-img-wrapper">
-                            <a href="#"><img class="img-responsive" src="{% static 'img/team/4.jpg' %}" alt="team"></a>
-                        </div>
-                        <div class="lecturers-content-wrapper">
-                            <h3 class="item-title"><a href="#">Kazi Fahim</a></h3>
-                            <span class="item-designation">Senior Finance Lecturer</span>
-                            <ul class="lecturers-social">
-                                <li><a href="#"><i class="fa fa-envelope-o" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="single-item">
-                    <div class="single-item-wrapper">
-                        <div class="lecturers-img-wrapper">
-                            <a href="#"><img class="img-responsive" src="{% static 'img/team/1.jpg' %}" alt="team"></a>
-                        </div>
-                        <div class="lecturers-content-wrapper">
-                            <h3 class="item-title"><a href="#">Rosy Janner</a></h3>
-                            <span class="item-designation">Senior Finance Lecturer</span>
-                            <ul class="lecturers-social">
-                                <li><a href="#"><i class="fa fa-envelope-o" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="single-item">
-                    <div class="single-item-wrapper">
-                        <div class="lecturers-img-wrapper">
-                            <a href="#"><img class="img-responsive" src="{% static 'img/team/2.jpg' %}" alt="team"></a>
-                        </div>
-                        <div class="lecturers-content-wrapper">
-                            <h3 class="item-title"><a href="#">Mike Hussy</a></h3>
-                            <span class="item-designation">Senior Finance Lecturer</span>
-                            <ul class="lecturers-social">
-                                <li><a href="#"><i class="fa fa-envelope-o" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-linkedin" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
-                                <li><a href="#"><i class="fa fa-facebook" aria-hidden="true"></i></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+                {% endfor %}
             </div>
         </div>
     </div>

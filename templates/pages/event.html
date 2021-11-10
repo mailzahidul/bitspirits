@@ -5,8 +5,6 @@
 {% load static %}
 
 {% block content %}
-
-<!-- Header Area End Here -->
         <!-- Inner Page Banner Area Start Here -->
         <div class="inner-page-banner-area" style="background-image: url('../../static/img/banner/5.jpg');">
             <div class="container">
@@ -26,66 +24,24 @@
                 <div class="row">
                     <div class="col-xl-9 col-lg-9 col-md-8 col-sm-12">
                         <div class="row event-inner-wrapper">
+                            {% for i in events %}
                             <div class="col-xl-12 col-lg-6 col-md-12 col-sm-6">
                                 <div class="single-item">
                                     <div class="item-img">
-                                        <a href="#"><img src="{% static 'img/event/1.jpg' %}" alt="event" class="img-responsive"></a>
+                                        <a href="#"><img src="{{ i.image.url }}" alt="event" class="img-responsive"></a>
                                     </div>
                                     <div class="item-content">
-                                        <h3 class="sidebar-title"><a href="single-event.html">WordPress  MeetUp Conference 2017</a></h3>
-                                        <p>Bimply dummy text of the printing and typesetting istryrem Ipsum has been the industry's standard dummy text ever when an unknown printer.</p>
+                                        <h3 class="sidebar-title"><a href="{% url 'event_view' i.id %}">{{ i.title }}</a></h3>
+                                        <p>{{ i.description }}</p>
                                         <ul class="event-info-block">
-                                            <li><i class="fa fa-calendar" aria-hidden="true"></i>22 December, 2016</li>
-                                            <li><i class="fa fa-map-marker" aria-hidden="true"></i>NewYork Tower, Melbourne</li>
+                                            <li><i class="fa fa-calendar" aria-hidden="true"></i>{{ i.event_time }}</li>
+                                            <li><i class="fa fa-map-marker" aria-hidden="true"></i>{{ i.where_at }}</li>
                                         </ul>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-xl-12 col-lg-6 col-md-12 col-sm-6">
-                                <div class="single-item">
-                                    <div class="item-img">
-                                        <a href="#"><img src="{% static 'img/event/2.jpg' %}" alt="event" class="img-responsive"></a>
-                                    </div>
-                                    <div class="item-content">
-                                        <h3 class="sidebar-title"><a href="single-event.html">WordPress  MeetUp Conference 2017</a></h3>
-                                        <p>Bimply dummy text of the printing and typesetting istryrem Ipsum has been the industry's standard dummy text ever when an unknown printer.</p>
-                                        <ul class="event-info-block">
-                                            <li><i class="fa fa-calendar" aria-hidden="true"></i>22 December, 2016</li>
-                                            <li><i class="fa fa-map-marker" aria-hidden="true"></i>NewYork Tower, Melbourne</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-12 col-lg-6 col-md-12 col-sm-6">
-                                <div class="single-item">
-                                    <div class="item-img">
-                                        <a href="#"><img src="{% static 'img/event/3.jpg' %}" alt="event" class="img-responsive"></a>
-                                    </div>
-                                    <div class="item-content">
-                                        <h3 class="sidebar-title"><a href="single-event.html">WordPress  MeetUp Conference 2017</a></h3>
-                                        <p>Bimply dummy text of the printing and typesetting istryrem Ipsum has been the industry's standard dummy text ever when an unknown printer.</p>
-                                        <ul class="event-info-block">
-                                            <li><i class="fa fa-calendar" aria-hidden="true"></i>22 December, 2016</li>
-                                            <li><i class="fa fa-map-marker" aria-hidden="true"></i>NewYork Tower, Melbourne</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-xl-12 col-lg-6 col-md-12 col-sm-6">
-                                <div class="single-item">
-                                    <div class="item-img">
-                                        <a href="#"><img src="{% static 'img/event/4.jpg' %}" alt="event" class="img-responsive"></a>
-                                    </div>
-                                    <div class="item-content">
-                                        <h3 class="sidebar-title"><a href="single-event.html">WordPress  MeetUp Conference 2017</a></h3>
-                                        <p>Bimply dummy text of the printing and typesetting istryrem Ipsum has been the industry's standard dummy text ever when an unknown printer.</p>
-                                        <ul class="event-info-block">
-                                            <li><i class="fa fa-calendar" aria-hidden="true"></i>22 December, 2016</li>
-                                            <li><i class="fa fa-map-marker" aria-hidden="true"></i>NewYork Tower, Melbourne</li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </div>
+                            {% endfor %}
+                            
                             <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
                                 <ul class="pagination-center">
                                     <li class="active"><a href="#">1</a></li>
@@ -102,9 +58,9 @@
                                 <div class="sidebar-box-inner">
                                     <h3 class="sidebar-title">Search</h3>
                                     <div class="sidebar-find-course">
-                                        <form id="checkout-form">
+                                        <form id="checkout-form" action="{% url 'event_search' %}" method="GET">
                                             <div class="form-group course-name">
-                                                <input id="first-name" placeholder="Type Here . . .." class="form-control" type="text" />
+                                                <input id="first-name" placeholder="Type Here . . .." name="search" class="form-control" type="text" />
                                             </div>
                                             <div class="form-group">
                                                 <button class="sidebar-search-btn-full disabled" type="submit" value="Login">Search</button>
@@ -117,12 +73,9 @@
                                 <div class="sidebar-box-inner">
                                     <h3 class="sidebar-title">Categories</h3>
                                     <ul class="sidebar-categories">
-                                        <li><a href="#">GMAT</a></li>
-                                        <li><a href="#">IELTS</a></li>
-                                        <li><a href="#">Regular MBA</a></li>
-                                        <li><a href="#">BBA</a></li>
-                                        <li><a href="#">CSE</a></li>
-                                        <li><a href="#">Diploma</a></li>
+                                        {% for i in categories %}
+                                        <li><a href="#">{{ i.course_category }}</a></li>
+                                        {% endfor %}
                                     </ul>
                                 </div>
                             </div>

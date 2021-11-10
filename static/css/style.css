@@ -9866,7 +9866,7 @@ ul.course-feature2 li:before {
   border-radius: 0;
   text-transform: lowercase;
   color: #717a7f;
-  height: 42px;
+  /* height: 42px; */
   font-size: 13px;
   background-color: rgba(0, 8, 46, 0.3);
 }

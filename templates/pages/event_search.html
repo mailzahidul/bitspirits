@@ -1,0 +1,65 @@
+{% extends 'base.html' %}
+
+{% block title %} Academics | {{ result.title }} {% endblock %}
+
+{% load static %}
+
+{% block content %}
+<div class="event-page-area">
+    <div class="container">
+        <div class="row">
+            <div class="col-xl-9 col-lg-9 col-md-8 col-sm-12">
+                <div class="row event-inner-wrapper">
+                    {% for i in result %}
+                    <div class="col-xl-12 col-lg-6 col-md-12 col-sm-6">
+                        <div class="single-item">
+                            <div class="item-img">
+                                <a href="#"><img src="{{ i.image.url }}" alt="event" class="img-responsive"></a>
+                            </div>
+                            <div class="item-content">
+                                <h3 class="sidebar-title"><a href="{% url 'event_view' i.id %}">{{ i.title }}</a></h3>
+                                <p>{{ i.description }}</p>
+                                <ul class="event-info-block">
+                                    <li><i class="fa fa-calendar" aria-hidden="true"></i>{{ i.event_time }}</li>
+                                    <li><i class="fa fa-map-marker" aria-hidden="true"></i>{{ i.where_at }}</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+            <div class="col-xl-3 col-lg-3 col-md-4 col-sm-12">
+                <div class="sidebar">
+                    <div class="sidebar-box">
+                        <div class="sidebar-box-inner">
+                            <h3 class="sidebar-title">Search</h3>
+                            <div class="sidebar-find-course">
+                                <form id="checkout-form" action="{% url 'event_search' %}" method="GET">
+                                    <div class="form-group course-name">
+                                        <input id="first-name" placeholder="Type Here . . .." name="search" class="form-control" type="text" />
+                                    </div>
+                                    <div class="form-group">
+                                        <button class="sidebar-search-btn-full disabled" type="submit" value="Login">Search</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="sidebar-box">
+                        <div class="sidebar-box-inner">
+                            <h3 class="sidebar-title">Categories</h3>
+                            <ul class="sidebar-categories">
+                                {% for i in categories %}
+                                <li><a href="#">{{ i.course_category }}</a></li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% endblock %}

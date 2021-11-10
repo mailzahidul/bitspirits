@@ -35,7 +35,7 @@ class Courses(models.Model):
     featured = models.BooleanField(default=False)
     categories = models.ForeignKey(CourseCategory, on_delete=models.SET_NULL, blank=True, null=True)
     is_free = models.BooleanField(default=False)
-    assigned_teacher = models.ManyToManyField(Lecturers, null=True)
+    assigned_teacher = models.ManyToManyField(Lecturers)
     duration = models.CharField(max_length=20, blank=True, null=True)
     classes = models.CharField(max_length=20, blank=True, null=True)
     time = models.CharField(max_length=20, blank=True, null=True)
@@ -49,7 +49,7 @@ class Courses(models.Model):
 
 
 class Comments(models.Model):
-    lecturee_id = models.CharField(max_length=5)
+    lecturee_id = models.ForeignKey(Lecturers, on_delete=models.SET_NULL, blank=True, null=True)
     name = models.CharField(max_length=50)
     email = models.EmailField()
     comments = models.TextField()
